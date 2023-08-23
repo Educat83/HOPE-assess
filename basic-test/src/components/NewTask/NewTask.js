@@ -1,12 +1,12 @@
 import MyCard from "../UI/MyCard";
+import NewTaskForm from "./NewTaskForm";
 
 const NewTask = () => {
-  return (<MyCard>
-    <form>
-      <label>Add a new task</label>
-      <input type="text"></input>
-    </form>
-  </MyCard>)
+  return (
+    <MyCard>
+      <NewTaskForm />
+    </MyCard>
+  );
 };
 
 export default NewTask;
