@@ -1,4 +1,5 @@
 import TaskItem from "./TaskItem";
+import MyCard from "../UI/MyCard";
 import classes from "./Tasks.module.css";
 
 const Tasks = (props) => {
@@ -12,7 +13,7 @@ const Tasks = (props) => {
 
   return (
     <>
-      <div className={classes.mycontainer}>{taskList}</div>
+      <MyCard className={classes.mycontainer}>{taskList}</MyCard>
     </>
   );
 };
