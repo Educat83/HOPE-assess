@@ -1,3 +1,5 @@
+import classes from './TaskItem.module.css'
+
 const DUMMY_tasks = [
   {
     id: "t1",
@@ -13,13 +15,13 @@ const DUMMY_tasks = [
   },
   {
     id: 't4',
-    text: 'Get a job as Reac dev'
+    text: 'Get a job as React dev'
   }
 ];
 
 const TaskItem = () => {
   const taskList = DUMMY_tasks.map((task) => (
-    <li>{task.text}</li>
+    <li className={classes.task}>{task.text}</li>
   ));
 
   return (
