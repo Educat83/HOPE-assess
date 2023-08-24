@@ -1,31 +1,49 @@
-import "./App.css";
-import Tasks from "../src/components/Tasks/Tasks";
+import { useState, useEffect } from "react";
+
 import NewTask from "./components/NewTask/NewTask";
+import Tasks from "../src/components/Tasks/Tasks";
+
+import "./App.css";
 
 const DUMMY_tasks = [
   {
-    id: "t1",
+    id: 1,
     text: "Supermarket shop",
+    completed: false,
   },
   {
-    id: "t2",
+    id: 2,
     text: "Batch cook for the week",
+    completed: false,
   },
   {
-    id: "t3",
+    id: 3,
     text: "Learn React with a full belly",
+    completed: false,
   },
   {
-    id: "t4",
+    id: 4,
     text: "Get a job as React dev",
+    completed: false,
   },
 ];
 
 function App() {
+  const [tasks, setTasks] = useState(DUMMY_tasks);
+
+
+  useEffect(() => {
+
+  }, [tasks]);
+
+  const taskAddHandler = (task) => {
+
+  };
+
   return (
     <>
-      <NewTask />
-      <Tasks items={DUMMY_tasks} />
+      <NewTask onAddTask={taskAddHandler} />
+      <Tasks items={tasks} />
     </>
   );
 }
