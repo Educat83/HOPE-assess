@@ -1,9 +1,23 @@
-import classes from './NewTaskForm.module.css';
+import { useRef } from "react";
 
-const NewTaskForm = () => {
+import classes from "./NewTaskForm.module.css";
+
+const NewTaskForm = (props) => {
+  const taskInputRef = useRef();
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const enteredTask = taskInputRef.current.value;
+
+    if (enteredTask.trim().length > 0) {
+      props.onSaveTask(enteredTask);
+    }
+  };
+
   return (
-    <form className={classes.form}>
-      <input type="text" />
+    <form className={classes.form} onSubmit={submitHandler}>
+      <input type="text" ref={taskInputRef} />
       <button>Add Task</button>
     </form>
   );
