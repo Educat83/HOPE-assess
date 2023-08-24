@@ -29,20 +29,25 @@ const DUMMY_tasks = [
 ];
 
 function App() {
-  const [tasks, setTasks] = useState(DUMMY_tasks);
-
+  // UseState initial value
+  const [tasks, setTasks] = useState('');
 
   useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    setTasks(storedTasks);
+  }, []);
 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  const taskAddHandler = (task) => {
-
+  const addTaskHandler = (task) => {
+    setTasks([...tasks, { id: task.id, text: task.text, completed: false }]);
   };
 
   return (
     <>
-      <NewTask onAddTask={taskAddHandler} />
+      <NewTask onAddTask={addTaskHandler} />
       <Tasks items={tasks} />
     </>
   );

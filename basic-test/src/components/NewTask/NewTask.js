@@ -10,7 +10,7 @@ const NewTask = (props) => {
     // Adding 1 to id value from last item of local storage array
     const genteredId = taskLast.id + 1;
     // New task values added to the new task
-    const taskData = { id: genteredId, taskText, completed: false };
+    const taskData = { id: genteredId, text: taskText, completed: false };
     // Data passed to through props to app.js
     props.onAddTask(taskData);
   };
