@@ -29,9 +29,9 @@ const DUMMY_tasks = [
 ];
 
 function App() {
-  // UseState initial value, ternary used to stop resting localstorage on web browser refresh
+  // UseState initial value, ternary used to stop restting localstorage on web browser refresh
   const [tasks, setTasks] = useState(
-    !localStorage.getItem("tasks")
+    !localStorage.getItem("tasks") || []
       ? DUMMY_tasks
       : JSON.parse(localStorage.getItem("tasks"))
   );
@@ -41,10 +41,12 @@ function App() {
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     setTasks(storedTasks);
   }, []);
+
   // Every time dependency tasks change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
   // UseState to set tasks by destructuring tasks and adding a new object on the array
   // using task identifier with the data from newTask.js
   const addTaskHandler = (task) => {
@@ -53,14 +55,22 @@ function App() {
 
   // TODOS:
   // -Toggle tasks as completed. Use of props to pass data and functions
-  // -Remove tasks from tasks
-  // -Remaining tasks counter
+  const toggleTasksCompleted = (taskId) => {
+     setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
 
+  // -Remove tasks from tasks
+
+  // -Remaining tasks counter
 
   return (
     <>
       <NewTask onAddTask={addTaskHandler} />
-      <Tasks items={tasks} />
+      <Tasks items={tasks} onToggleCompleted={toggleTasksCompleted} />
     </>
   );
 }
