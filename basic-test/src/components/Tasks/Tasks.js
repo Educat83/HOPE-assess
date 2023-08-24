@@ -11,11 +11,7 @@ const Tasks = (props) => {
     </ul>
   );
 
-  return (
-    <>
-      <MyCard className={classes.mycontainer}>{taskList}</MyCard>
-    </>
-  );
+  return <MyCard className={classes.mycontainer}>{taskList}</MyCard>;
 };
 
 export default Tasks;
