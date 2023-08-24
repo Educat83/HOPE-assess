@@ -29,18 +29,24 @@ const DUMMY_tasks = [
 ];
 
 function App() {
-  // UseState initial value
-  const [tasks, setTasks] = useState('');
+  // UseState initial value, ternary used to stop resting localstorage on web browser refresh
+  const [tasks, setTasks] = useState(
+    !localStorage.getItem("tasks")
+      ? DUMMY_tasks
+      : JSON.parse(localStorage.getItem("tasks"))
+  );
 
+  // First time app runs to get local storage
   useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     setTasks(storedTasks);
   }, []);
-
+  // Every time dependency tasks change
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-
+  // UseState to set tasks by destructuring tasks and adding a new object on the array
+  // using task identifier with the data from newTask.js
   const addTaskHandler = (task) => {
     setTasks([...tasks, { id: task.id, text: task.text, completed: false }]);
   };
