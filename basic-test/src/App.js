@@ -51,6 +51,12 @@ function App() {
     setTasks([...tasks, { id: task.id, text: task.text, completed: false }]);
   };
 
+  // TODOS:
+  // -Toggle tasks as completed. Use of props to pass data and functions
+  // -Remove tasks from tasks
+  // -Remaining tasks counter
+
+
   return (
     <>
       <NewTask onAddTask={addTaskHandler} />
