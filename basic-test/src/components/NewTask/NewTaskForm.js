@@ -3,8 +3,9 @@ import { useRef, useState } from "react";
 import classes from "./NewTaskForm.module.css";
 
 const NewTaskForm = (props) => {
-  const [newTask, setNewTask] = useState("");
-
+  // UseState to clear input value
+  const [taskValue, setTaskValue] = useState("");
+  // UseRef to target the input value
   const taskInputRef = useRef();
 
   const submitHandler = (event) => {
@@ -13,20 +14,21 @@ const NewTaskForm = (props) => {
     const enteredTask = taskInputRef.current.value;
 
     if (enteredTask.trim().length > 0) {
-      props.onSaveTask(enteredTask);
-      setNewTask("");
+      props.onSaveTask(enteredTask);//Data to parent NewTask.js
+      setTaskValue("");//Clear function
     }
   };
-
-  const changeHandler = (event) => {setNewTask(event.target.value)}
-
+  // Event listener to update input value
+  const changeHandler = (event) => {
+    setTaskValue(event.target.value);
+  };
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <input
         type="text"
         ref={taskInputRef}
-        value={newTask}
+        value={taskValue}
         onChange={changeHandler}
         placeholder="Add a new task"
       />
