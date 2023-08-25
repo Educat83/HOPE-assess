@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import classes from "./TaskItem.module.css";
+import MyCard from "../UI/MyCard";
 
 const TaskItem = (props) => {
   // Use of state to seting editing state and to save the edited text
@@ -59,7 +60,9 @@ const TaskItem = (props) => {
       </div>
       <div className={classes.taskActions}>
         <div className={classes.taskButton}>
-          <button className={classes.editButton} onClick={editingToggleHandler}>Edit</button>
+          <button className={classes.editButton} onClick={editingToggleHandler}>
+            Edit
+          </button>
         </div>
         <div className={classes.taskButton}>
           <button className={classes.deleteButton} onClick={removeTaskHandler}>
@@ -71,23 +74,25 @@ const TaskItem = (props) => {
   );
 
   return (
-    <li
-      className={
-        props.taskItem.completed
-          ? `${classes.task} ${classes.completed}`
-          : classes.task
-      }
-    >
-      <label htmlFor="completed">
-        {!props.taskItem.completed ? "Pending" : "Done"}
-      </label>
-      <input
-        type="checkbox"
-        checked={props.taskItem.completed}
-        onChange={completedToggleHandler}
-      />
-      <div className={classes.taskContent}>{inputActions}</div>
-    </li>
+    <MyCard>
+      <li
+        className={
+          props.taskItem.completed
+            ? `${classes.task} ${classes.completed}`
+            : classes.task
+        }
+      >
+        <label htmlFor="completed">
+          {!props.taskItem.completed ? "Pending" : "Done"}
+        </label>
+        <input
+          type="checkbox"
+          checked={props.taskItem.completed}
+          onChange={completedToggleHandler}
+        />
+        <div className={classes.taskContent}>{inputActions}</div>
+      </li>
+    </MyCard>
   );
 };
 
