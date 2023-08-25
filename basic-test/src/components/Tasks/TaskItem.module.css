@@ -1,4 +1,6 @@
 .task {
+  display: flex;
+  justify-content: space-evenly;
   border-bottom: 1px solid #ccc;
   padding: 1rem;
   font-weight: bold;
@@ -7,4 +9,8 @@
 
 .task:last-of-type {
   border-bottom: none;
+}
+
+.completed {
+  color: red;
 }
