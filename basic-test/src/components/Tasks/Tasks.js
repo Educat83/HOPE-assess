@@ -19,6 +19,7 @@ const Tasks = (props) => {
             taskItem={task}
             onToggle={props.onToggleCompleted}
             onRemove={props.onRemoveTask}
+            onUpdate={props.onUpdateTask}
           >
             {task.text}
           </TaskItem>
