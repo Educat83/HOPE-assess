@@ -53,6 +53,8 @@ function App() {
     setTasks([...tasks, { id: task.id, text: task.text, completed: false }]);
   };
 
+  const updateTaskHandler = () => {};
+
   // TODOS:
   // -Toggle tasks as completed. Use of props to pass data and functions
   const toggleTasksCompleted = (taskId) => {
@@ -77,6 +79,7 @@ function App() {
         items={tasks}
         onToggleCompleted={toggleTasksCompleted}
         onRemoveTask={removeTask}
+        onUpdateTask={updateTaskHandler}
       />
     </>
   );
