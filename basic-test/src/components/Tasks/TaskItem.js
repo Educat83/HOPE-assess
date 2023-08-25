@@ -7,12 +7,12 @@ const TaskItem = (props) => {
   };
 
   return (
-    <li className={props.taskItem.completed ? `task ${classes.completed}` : "task"}>
+    <li className={props.taskItem.completed ? `${classes.task} ${classes.completed}` : classes.task}>
       <label htmlFor="completed">{!props.taskItem.completed ? 'Pending' : "Done"}</label>
       <input type="checkbox" checked={props.taskItem.completed}  onChange={completedToggleHandler}/>
       <span>{props.children}</span>
       <div>
-        <button>Delete</button>
+        <button>X</button>
       </div>
     </li>
   );
