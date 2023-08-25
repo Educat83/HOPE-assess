@@ -13,6 +13,7 @@
 
 .completed {
   color: red;
+  opacity: .5;
 }
 
 .taskContent{
@@ -36,8 +37,6 @@
 
 .deleteButton {
   border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
 .deleteButton:hover {
@@ -47,6 +46,15 @@
 }
 
 .saveButton:hover {
+  background-color: #4aef3486;
+  box-shadow: 1px 2px #666;
+  opacity: 0.85;
 
+}
+
+.editButton:hover {
+  background-color: #55abf6dc;
+  box-shadow: 1px 2px #666;
+  opacity: 0.85;
 
 }

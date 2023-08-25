@@ -59,7 +59,7 @@ const TaskItem = (props) => {
       </div>
       <div className={classes.taskActions}>
         <div className={classes.taskButton}>
-          <button onClick={editingToggleHandler}>Edit</button>
+          <button className={classes.editButton} onClick={editingToggleHandler}>Edit</button>
         </div>
         <div className={classes.taskButton}>
           <button className={classes.deleteButton} onClick={removeTaskHandler}>

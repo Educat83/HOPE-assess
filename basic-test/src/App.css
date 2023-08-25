@@ -1,3 +1,16 @@
+button {
+  border-radius: 4px;
+
+}
+
 button:active {
   transform: translateY(1px);
+
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 2px 3px #5a5a5a;
+  opacity: 0.85;
+  transition: 0.3s;
 }
