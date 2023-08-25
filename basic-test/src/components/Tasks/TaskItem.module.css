@@ -14,3 +14,39 @@
 .completed {
   color: red;
 }
+
+.taskContent{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.taskActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.1rem;
+}
+
+.taskButton {
+  margin: 0.2rem;
+}
+
+.deleteButton {
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: #ed0909;
+  box-shadow: 1px 2px #666;
+  opacity: 0.85;
+}
+
+.saveButton:hover {
+
+
+}
