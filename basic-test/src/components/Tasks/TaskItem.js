@@ -2,8 +2,16 @@ import classes from "./TaskItem.module.css";
 
 const TaskItem = (props) => {
   // TODO: -Add html elements to be able to remove and toggle completed status
+  const selectedTaksId = props.taskItem.id;
+
   const completedToggleHandler = () => {
-    props.onToggle(props.taskItem.id)
+    props.onToggle(selectedTaksId)
+
+  };
+
+  const removeTaskHandler = () => {
+    props.onRemove(selectedTaksId)
+
   };
 
   return (
@@ -12,7 +20,7 @@ const TaskItem = (props) => {
       <input type="checkbox" checked={props.taskItem.completed}  onChange={completedToggleHandler}/>
       <span>{props.children}</span>
       <div>
-        <button>X</button>
+        <button onClick={removeTaskHandler}>X</button>
       </div>
     </li>
   );
