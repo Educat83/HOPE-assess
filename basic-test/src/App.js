@@ -4,6 +4,7 @@ import NewTask from "./components/NewTask/NewTask";
 import Tasks from "../src/components/Tasks/Tasks";
 
 import "./App.css";
+import MyCard from "./components/UI/MyCard";
 
 const DUMMY_tasks = [
   {
@@ -81,6 +82,7 @@ function App() {
     setTasks(updatedTasks);
   };
   // -Remaining tasks counter
+  const remainingTasks = tasks.filter((task) => !task.completed);
 
   return (
     <>
@@ -90,7 +92,8 @@ function App() {
         onToggleCompleted={toggleTasksCompleted}
         onRemoveTask={removeTask}
         onUpdateTask={updateTaskHandler}
-      />
+        />
+        <MyCard><p>Total tasks remaining: {remainingTasks.length}</p></MyCard>
     </>
   );
 }
