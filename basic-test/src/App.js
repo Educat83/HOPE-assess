@@ -53,7 +53,17 @@ function App() {
     setTasks([...tasks, { id: task.id, text: task.text, completed: false }]);
   };
 
-  const updateTaskHandler = () => {};
+  // Update task with data from child rending task.map with new value
+  const updateTaskHandler = (taskId, newText) => {
+    const updatedTasks = tasks.map(task => {
+      if (task.id === taskId) {
+        // Destructuring to add new task text
+        return { ...task, text: newText };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
 
   // TODOS:
   // -Toggle tasks as completed. Use of props to pass data and functions
